@@ -1,0 +1,87 @@
+.search {
+  display: flex;
+  gap: 10px;
+}
+.btnSearch {
+  padding: 3px;
+  border: 2px solid blue;
+  color: blue;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.products {
+  display: flex;
+  margin-bottom: 50px;
+}
+.products img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Car Cards */
+.card.car-blue {
+  background-color: #0056cc;
+  border: 3px solid #003d99;
+}
+
+.card.car-yellow {
+  background-color: #ffb300;
+  border: 3px solid #e69500;
+}
+
+.card.car-red {
+  background-color: #cc0000;
+  border: 3px solid #990000;
+}
+
+.card.car-red,
+.card.car-blue,
+.card.car-yellow {
+  padding: 20px;
+}
+
+.cars {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.card car-blue {
+  background-color: #0056cc;
+}
+
+.card.car-red img,
+.card.car-blue img,
+.card.car-yellow img {
+  width: 100%;
+
+  height: auto;
+  margin: 0;
+}
+.card {
+  border-radius: 12px;
+}
+
+label {
+  font-weight: 500;
+}
+.myButton {
+  height: 100%;
+  width: 100%;
+  background-color: #3b82f6;
+}
+
+.myButton {
+  margin-bottom: 30px;
+}
+
+.ticket {
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  margin-bottom: 50px;
+}
