@@ -11,6 +11,17 @@ const classesReducer = (state, action) => {
   switch (action.type) {
     case "DELETE_RECORD":
       return state.filter((c) => c.id !== action.payload);
+
+    case "TOGGLE_STATUS":
+      return state.map((c) =>
+        c.id === action.payload
+          ? {
+              ...c,
+              status: c.status === "PRESENT" ? "ABSENT" : "PRESENT",
+            }
+          : c,
+      );
+
     default:
       return state;
   }
@@ -31,10 +42,6 @@ function App() {
   useEffect(() => {
     setSavedClasses(classes);
   }, [classes, setSavedClasses]);
-
-  useEffect(() => {
-    document.title = `Tổng số lớp học: ${classes.length}`;
-  }, [classes]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

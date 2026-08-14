@@ -9,11 +9,8 @@ import React, {
 import { ThemeContext } from "../App";
 function ClassList({ classes, dispatch }) {
   const { theme } = useContext(ThemeContext);
-  const [filter, setFilter] = useState(null);
   const [searchKey, setSearchKey] = useState("");
   const [selectStatus, setSelectStatus] = useState("all");
-  const nameRef = useRef(null);
-  const statusRef = useRef(null);
 
   const filtered = classes.filter((p) => {
     const filterName = p.name.toLowerCase().includes(searchKey.toLowerCase());
@@ -45,7 +42,12 @@ function ClassList({ classes, dispatch }) {
     },
     [dispatch],
   );
-
+  const handleToggleStatus = (id) => {
+    dispatch({
+      type: "TOGGLE_STATUS",
+      payload: id,
+    });
+  };
   return (
     <div>
       <div
@@ -157,7 +159,12 @@ function ClassList({ classes, dispatch }) {
                   })}
                 </td>
                 <td>
-                  <button>{i.status}</button>
+                  <button
+                    type="button"
+                    onClick={() => handleToggleStatus(i.id)}
+                  >
+                    {i.status}
+                  </button>
                 </td>
                 <td className="d-flex justify-content-center">
                   <button
