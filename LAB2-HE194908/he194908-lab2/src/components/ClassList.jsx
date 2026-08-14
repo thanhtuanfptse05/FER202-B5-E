@@ -20,6 +20,13 @@ function ClassList({ classes, dispatch }) {
     const filterStatus = selectStatus === "all" || p.status === selectStatus;
     return filterName && filterStatus;
   });
+  const total = classes.length;
+
+  const present = classes.filter((i) => i.status === "PRESENT").length;
+
+  const absent = classes.filter((i) => i.status === "ABSENT").length;
+
+  const attendanceRate = total === 0 ? 0 : ((present / total) * 100).toFixed(2);
 
   const handleReset = () => {
     setSearchKey("");
@@ -94,12 +101,21 @@ function ClassList({ classes, dispatch }) {
         </div>
       </div>
       <div className="m-3">
-        <p>
-          <span>Tổng số bản ghi: </span>
-          <span style={{ fontWeight: "bold" }}>{classes.length}</span>
-          <span>Có mặt: </span>
-          <span>Tỷ lệ đi học:</span>
-        </p>
+        <div className="m-3">
+          <p>
+            <span>Tổng số bản ghi: </span>
+            <span style={{ fontWeight: "bold" }}>{total}</span>
+
+            <span style={{ marginLeft: "20px" }}>Có mặt: </span>
+            <span style={{ fontWeight: "bold" }}>{present}</span>
+
+            <span style={{ marginLeft: "20px" }}>Vắng mặt: </span>
+            <span style={{ fontWeight: "bold" }}>{absent}</span>
+
+            <span style={{ marginLeft: "20px" }}>Tỷ lệ đi học: </span>
+            <span style={{ fontWeight: "bold" }}>{attendanceRate}%</span>
+          </p>
+        </div>
       </div>
       <div className="m-3">
         <table

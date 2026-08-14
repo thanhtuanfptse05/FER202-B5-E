@@ -9,12 +9,6 @@ export const ThemeContext = createContext();
 
 const classesReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_CLASS":
-      return [...state, action.payload];
-    case "UPDATE_CLASS":
-      return state.map((c) =>
-        c.id === action.payload.id ? { ...c, ...action.payload } : c,
-      );
     case "DELETE_RECORD":
       return state.filter((c) => c.id !== action.payload);
     default:
