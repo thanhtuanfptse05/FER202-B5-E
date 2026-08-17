@@ -24,11 +24,13 @@ function ClassList({ classes, dispatch }) {
   const absent = classes.filter((i) => i.status === "ABSENT").length;
 
   const attendanceRate = total === 0 ? 0 : ((present / total) * 100).toFixed(2);
-
+  const inputRef = useRef(null);
   const handleReset = () => {
+    inputRef.current.focus();
     setSearchKey("");
     setSelectStatus("all");
   };
+
   const uniqueStatus = useMemo(() => {
     return [...new Set(classes.map((i) => i.status))];
   }, [classes]);
@@ -68,6 +70,7 @@ function ClassList({ classes, dispatch }) {
             placeholder="Tìm kiếm theo tên sinh viên"
             value={searchKey}
             onChange={(e) => setSearchKey(e.target.value)}
+            ref={inputRef}
           />
         </div>
 

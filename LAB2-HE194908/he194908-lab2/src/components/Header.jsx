@@ -8,7 +8,7 @@ function Header() {
   return (
     <div className="d-flex justify-content-between">
       <div className="m-3">
-        <h2>Hệ Thống Quản Lý Điểm Danh Lớp Học</h2>
+        <h2>Hệ Thống Quản Lý Điểm Danh Lớp Học Cao Thanh Tuấn</h2>
       </div>
 
       <div
